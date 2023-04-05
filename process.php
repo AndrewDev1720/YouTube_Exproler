@@ -53,6 +53,7 @@ if(isset($_POST['youtube-link'])) {
 ?>
 <script>
     console.log(<?php echo json_encode($return_var); ?>);
+    console.log(<?php echo json_encode($cmd); ?>);
 </script>
 <?php
 }

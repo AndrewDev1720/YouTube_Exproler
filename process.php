@@ -32,7 +32,7 @@ if(isset($_POST['youtube-link'])) {
     else if($format == "M4A"){
         $cmd = "yt-dlp -x --audio-format m4a --audio-quality 0 --add-metadata -o '{$title}.{$quality}' {$youtube_link}";
         $m4a_file = "{$title}.$quality.m4a";
-        $download_link = $_SERVER['REQUEST_SCHEME']. '/' . $m4a_file;
+        $download_link = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/' . $m4a_file;
     }
     else{
         if($quality == "low")
@@ -43,7 +43,7 @@ if(isset($_POST['youtube-link'])) {
             $quality = 1440;
         $cmd = "yt-dlp -f  \"bestvideo[height<={$quality}][ext=mp4]+bestaudio[ext=m4a]/best[height<={$quality}][ext=mp4]\" --output '{$title}.{$quality}' {$youtube_link}";
         $mp4_file = "{$title}.$quality.mp4";
-        $download_link = $_SERVER['REQUEST_SCHEME']. '/' . $mp4_file;
+        $download_link = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/' . $mp4_file;
     }
     
     exec($cmd, $output, $return_var);

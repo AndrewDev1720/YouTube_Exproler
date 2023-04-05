@@ -24,7 +24,7 @@ if(isset($_POST['youtube-link'])) {
             $parsed_quality = 5;
         else 
             $parsed_quality = 0;
-        $cmd = "yt-dlp -x --audio-format mp3 --audio-quality {$parsed_quality} --output '{$title}.$quality.%(ext)s' {$youtube_link}";       
+        $cmd = "yt-dlp -x --audio-format mp3 --audio-quality {$parsed_quality} --output '/app/storage%{$title}.$quality.%(ext)s' {$youtube_link}";       
         $mp3_file = "{$title}.$quality.mp3";
         $download_link = $_SERVER['REQUEST_SCHEME']. '/' . $mp3_file;
 
@@ -41,7 +41,7 @@ if(isset($_POST['youtube-link'])) {
             $quality = 1080;
         else
             $quality = 1440;
-        $cmd = "yt-dlp -f  \"bestvideo[height<={$quality}][ext=mp4]+bestaudio[ext=m4a]/best[height<={$quality}][ext=mp4]\" --output '{$title}.{$quality}.%(ext)s' {$youtube_link}";
+        $cmd = "yt-dlp -f  \"bestvideo[height<={$quality}][ext=mp4]+bestaudio[ext=m4a]/best[height<={$quality}][ext=mp4]\" --output '{$title}.{$quality}.(ext)s' {$youtube_link}";
         $mp4_file = "{$title}.$quality.mp4";
         $download_link = $_SERVER['REQUEST_SCHEME']. '/' . $mp4_file;
     }

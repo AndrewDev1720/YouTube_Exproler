@@ -1,1 +1,14 @@
-{}
+{
+    "name": "yt-dlp/youtube-explorer",
+    "description": "Dependency to download",
+    "scripts": {
+        "post-install-cmd": [
+            "curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /app/bin/yt-dlp",
+            "chmod a+rx /app/bin/yt-dlp"
+        ],
+        "post-update-cmd": [
+            "curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /app/bin/yt-dlp",
+            "chmod a+rx /app/bin/yt-dlp"
+        ]
+    }
+}

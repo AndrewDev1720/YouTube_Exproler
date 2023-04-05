@@ -26,7 +26,7 @@ if(isset($_POST['youtube-link'])) {
             $parsed_quality = 0;
         $cmd = "yt-dlp -x --audio-format mp3 --audio-quality {$parsed_quality} --output '{$title}.$quality' {$youtube_link}";       
         $mp3_file = "{$title}.$quality.mp3";
-        $download_link = $_SERVER['REQUEST_SCHEME']. '/' . $mp3_file;
+        $download_link = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/' . $mp3_file;
 
     }
     else if($format == "M4A"){

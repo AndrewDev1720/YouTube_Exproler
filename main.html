@@ -60,11 +60,14 @@
 			border-radius: 5px;
 			cursor: pointer;
 		}
-
-		img {
+		.youtube-image {
 			height: 70px;
 			margin-right: 10px;
 		}
+		/* img {
+			height: 70px;
+			margin-right: 10px;
+		} */
 
 		.search-area {
 			display: grid;
@@ -88,7 +91,7 @@
 				<h1 class="mb-3 mt-3">YouTube Exproler</h1>
 			</div>
 			<form class="text-center" action="convert.php" method="POST">
-				<img src="https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500" alt="YouTube Logo">
+				<img class="youtube-image" src="https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500" alt="YouTube Logo">
 				<input type="text" name="youtube-link" id="youtube-link" placeholder="Enter YouTube video link" required>
 				<select name="format" id="format" class="form-select" required>
 					<option value="" disabled selected hidden>Format</option>
@@ -111,20 +114,68 @@
 		<br>
 		<div class="row justify-content-center">
 			<div class="col-6 col-sm-2 p-4 text-center">
-				<img src="https://ssyoutube.com/img/platforms/windows.svg" alt="" width="150" height="150">
+				<img src="https://ssyoutube.com/img/platforms/windows.svg" alt="" height="70">
 			</div>
 			<div class="col-6 col-sm-2 p-4 text-center">
-				<img src="https://ssyoutube.com/img/platforms/apple.svg" alt="" width="150" height="150">
+				<img src="https://ssyoutube.com/img/platforms/apple.svg" alt="" height="70">
 			</div>
 			<div class="col-6 col-sm-2 p-4 text-center">
-				<img src="https://ssyoutube.com/img/platforms/android.svg" alt="" width="150" height="150">
+				<img src="https://ssyoutube.com/img/platforms/android.svg" alt="" height="70">
 			</div>
 			<div class="col-6 col-sm-2 p-4 text-center">
-				<img src="https://ssyoutube.com/img/platforms/linux.svg" alt="" width="150" height="150">
+				<img src="https://ssyoutube.com/img/platforms/linux.svg" alt="" height="70">
 			</div>
 		</div>
 	<br>
-	<h2 class="col-12 text-center mb-4">How to download your favorite YouTube videos format</h2>
+	<section class="container mb-5 align-items-center b-instruction how-to">
+		<h2 class="col-12 text-center mb-4">How to download YouTube videos online</h2>
+		<div class="row text-center justify-content-center" style = "height: 200px;">
+			<div class="col-sm-6 col-lg-6">
+				<div class="media">
+					<div class="media-body">
+						<div class="img mx-auto mb-4 pb-1 mb-lg-0 col-10 col-sm-12 h-auto">
+							<picture>
+								<img style = "height: 180" loading="lazy" src="youtube-banner.png" alt="" height="250px">
+							</picture>
+						</div>
+						<p class="text-muted">Copy the link to the video and paste it into the input line.</p>
+					</div>
+				</div>
+	
+			</div>
+			<!-- <div class="col-sm-6 col-lg-4">
+				<div class="media">
+					<div class="media-body">
+						<div class="img mx-auto mb-4 pb-1 mb-lg-0 col-10 col-sm-12 h-auto">
+							<picture>
+								<img loading="lazy" src="https://ssyoutube.com/img/steps/howto3.png" alt="" width="225" height="180">
+							</picture>
+						</div>
+						<p class="text-muted">Click "Download" and wait for the video to be ready.</p>
+					</div>
+				</div>
+	
+			</div>
+			<div class="col-sm-6 col-lg-4">
+				<div class="media">
+					<div class="media-body">
+						<div class="img mx-auto mb-4 pb-1 mb-lg-0 col-10 col-sm-12 h-auto">
+							<picture>
+								<img loading="lazy" src="https://ssyoutube.com/img/steps/howto4.png" alt="" width="225" height="180">
+							</picture>
+						</div>
+						<p class="text-muted">Select the desired download options and click "Download".</p>
+					</div>
+				</div>
+	
+			</div> -->
+			
+		</div>
+	</section>
+	<div class="text-center p-3 fixed-bottom" style="background-color: rgba(0, 0, 0, 0.2);">
+		© 2023 Copyright:
+		<a class="text-white" href="https://mdbootstrap.com/">YouTube-Exproler.com</a>
+	</div>
 </body>
 </html>
 </html>

@@ -47,13 +47,12 @@ if(isset($_POST['youtube-link'])) {
     }
     
     exec($cmd, $output, $return_var);
-    
     // Generate a download link
     $thumbnail_img_link = "https://img.youtube.com/vi/{$video_id}/0.jpg";
     include 'index2.html';
 ?>
 <script>
-    console.log(<?php echo json_encode($format); ?>);
+    console.log(<?php echo json_encode($return_var); ?>);
 </script>
 <?php
 }

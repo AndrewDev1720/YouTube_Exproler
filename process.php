@@ -24,7 +24,7 @@ if(isset($_POST['youtube-link'])) {
             $parsed_quality = 5;
         else 
             $parsed_quality = 0;
-        $cmd = "yt-dlp -x --audio-format mp3 --audio-quality {$parsed_quality} --output '/app/storage%{$title}.$quality.%(ext)s' {$youtube_link}";       
+        $cmd = "yt-dlp -x --audio-format mp3 --audio-quality {$parsed_quality} --output '/app%{$title}.$quality.%(ext)s' {$youtube_link}";       
         $mp3_file = "{$title}.$quality.mp3";
         $download_link = $_SERVER['REQUEST_SCHEME']. '/' . $mp3_file;
 

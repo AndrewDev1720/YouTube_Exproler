@@ -27,6 +27,13 @@ if(isset($_POST['youtube-link'])) {
         $cmd = "yt-dlp -x --audio-format mp3 --audio-quality {$parsed_quality} --output '{$title}.$quality' {$youtube_link}";       
         $mp3_file = "{$title}.$quality.mp3";
         $download_link = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/' . $mp3_file;
+        header('Content-Type: audio/mpeg');
+
+        // Set the Content-Disposition header to attachment to force a download
+        header('Content-Disposition: attachment; filename="' . basename($mp3_file) . '"');
+
+        // Read and output the contents of the file
+        readfile($mp3_file);
 
     }
     else if($format == "M4A"){

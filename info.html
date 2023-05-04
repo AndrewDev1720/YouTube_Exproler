@@ -75,18 +75,18 @@
 								<div id="tabAudio" class="tabcontent" style="display: none;">
 									<form style="display:flex; width: 100%; margin-top: 15px;" action="process_audio.php" method="POST" >
 										<input type="hidden" name="youtube-link" id="youtube-link" placeholder="Enter YouTube video link" value="<?php echo $youtube_link; ?>">
-										<select name="format" id="format" class="form-select" style="width: 35%;" required>
+										<select name="format" id="format" class="form-select" style="width: 20%;" required>
 											<option value="" disabled selected hidden>Format</option>
 											<option value="MP3">MP3</option>
 											<option value="M4A">M4A</option>
 										</select>
-										<select name="quality" id="quality" class="form-select" style="width: 60%;" required> 
+										<select name="quality" id="quality" class="form-select" style="width: 55%;" required> 
 											<option value="" disabled selected hidden>Please select audio quality</option>
 											<option value="high">High (Max: 320 kbps)</option>
 											<option value="medium">Medium (Max: 128kbps)</option>
 											<option value="low">Low (Max: 64 kbps)</option>
 										</select>
-										<button type="submit" class = "flex-grow-1" style="background-color: #4c70e6">Download</button>
+										<button type="submit" style="background-color: #4c70e6; width: 25%">Download</button>
 									</form>
 									<!-- <div id="download-link" style="display: none; margin-top: 10px;">
 										Click &nbsp;<a href="<?php echo $download_link ?>">here</a> &nbsp;to view and download the <?php echo $format ?> file "<?php echo $title ?>"</p>

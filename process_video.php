@@ -62,7 +62,7 @@ if(isset($_POST['youtube-link'])) {
         $search_query = urlencode($youtube_link);
         echo "<script>window.open('https://www.youtube.com/results?search_query={$search_query}', '_blank');</script>";
         // header("Location: https://www.youtube.com/results?search_query={$search_query}");
-        include 'index.html';
+        include 'video.html';
     }    
 
 

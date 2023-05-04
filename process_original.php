@@ -50,7 +50,7 @@ if(isset($_POST['youtube-link'])) {
     $download_link = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/' . $file_name;
     $thumbnail_img_link = "https://img.youtube.com/vi/{$video_id}/0.jpg";
     $iframe_src = "https://www.youtube.com/embed/{$video_id}";
-    include 'index2.html';
+    include 'index_original2.html';
     echo "<script>document.getElementById('video-player').src = '{$iframe_src}';</script>";
 
 

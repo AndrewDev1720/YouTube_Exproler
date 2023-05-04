@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+		<path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+		<path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+	</svg> -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- Add the AJAX code -->
+	<title>YouTube Explorer</title>
+</head>
+<body>
+	<div class="content">
+		<nav class="navbar navbar-light justify-content-between" style = "background-color: lightblue;">
+			<a class="navbar-brand" href="index.html">
+				<img src="yt-logo.png" height="40" class="d-inline-block" alt="">
+					YouTube-Exproler
+			</a>
+			<a class="navbar-brand" href="index.html">
+				About Us
+			</a>
+		</nav>
+		<section id = "main" class = "jumbotron mb-0 pb-3">
+			<div class="search-area">
+				<div class="title">
+					<h1 class="mb-3 mt-3">YouTube Exproler</h1>
+				</div>
+				<div class = "form2">
+					<form action="process_info.php" method="POST">
+						<div style="display:flex">
+							<img class = "youtube-image" src="https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500" alt="YouTube Logo">
+							<input type="text" name="youtube-link" id="youtube-link" placeholder="Enter YouTube video link" required>
+							<div style="max-height: 70%; margin-top: 10px;">
+								<button type="submit" class="flex-grow-1">Search</button>
+							</div>	
+						</div>
+						<!-- <div style = "display: grid; align-items: center;margin-left:10px;"> -->
+							
+							<!-- <img id="thumbnail" src="<?php echo $thumbnail_img_link ?>" alt=""> -->
+							
+						<!-- </div> -->
+					</form>
+					<div class="container">
+						<div class="row">
+							<div class="col-sm text-center">
+								<iframe id="video-player" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<div class="col-sm">
+								<div class="row">
+									<div class="col-sm text-center" style="padding-right: 1px;">
+										<button class="tablinks w-100" onclick="openTab(event, 'tabVideo')" style="background-color: #96979b; color: white; padding: 15px 0; border: none; border-radius: 4px;">Video</button>
+									</div>
+									<div class="col-sm text-center" style="padding-left: 1px;">
+										<button class="tablinks w-100" onclick="openTab(event, 'tabAudio')" style="background-color: #96979b; opacity: 0.5; color: white; padding: 15px 0; border: none; border-radius: 4px;">Audio</button>
+									</div>
+								</div>
+								<div id="tabVideo" class="tabcontent">
+									<form style="display:flex; width: 100%; margin-top: 15px;"action="process_video.php" method="POST">
+										<input type="hidden" name="youtube-link" id="youtube-link" placeholder="Enter YouTube video link" value="<?php echo $youtube_link; ?>">
+										<select name="format" id="format" class="form-select" style="width: 35%;" required>
+											<option value="" disabled selected hidden>Format</option>
+											<option value="MP4">MP4</option>
+											<option value="Webm">Webm</option>
+										</select>
+										<select name="quality" id="quality" class="form-select" style="width: 60%;" required> 
+											<option value="" disabled selected hidden>Please select video quality</option>
+											<option value="high">High (Max: 1440p)</option>
+											<option value="medium">Medium (Max: 1080p)</option>
+											<option value="low">Low (Max: 720p)</option>
+										</select>
+										<!-- <button type="submit" class = "flex-grow-1 glyphicon glyphicon-align-left">
+											<span class="glyphicon glyphicon-star" aria-hidden="true"></span> Download
+										</button> -->
+										<button type="submit" class = "flex-grow-1" style="background-color: #4c70e6">Download</button>
+									</form>
+									<div id="download-link" style="display: none; margin-top: 10px;">
+										Click &nbsp;<a href="<?php echo $download_link ?>">here</a> &nbsp;to view and download the <?php echo $format ?> file "<?php echo $title ?>"</p>
+									</div>
+								</div>
+								<div id="tabAudio" class="tabcontent" style="display: none;">
+									<form style="display:flex; width: 100%; margin-top: 15px;" action="process_audio.php" method="POST" >
+										<input type="hidden" name="youtube-link" id="youtube-link" placeholder="Enter YouTube video link" value="<?php echo $youtube_link; ?>">
+										<select name="format" id="format" class="form-select" style="width: 35%;" required>
+											<option value="" disabled selected hidden>Format</option>
+											<option value="MP3">MP3</option>
+											<option value="M4A">M4A</option>
+										</select>
+										<select name="quality" id="quality" class="form-select" style="width: 60%;" required> 
+											<option value="" disabled selected hidden>Please select audio quality</option>
+											<option value="high">High (Max: 320 kbps)</option>
+											<option value="medium">Medium (Max: 128kbps)</option>
+											<option value="low">Low (Max: 64 kbps)</option>
+										</select>
+										<button type="submit" class = "flex-grow-1" style="background-color: #4c70e6">Download</button>
+									</form>
+									<!-- <div id="download-link" style="display: none; margin-top: 10px;">
+										Click &nbsp;<a href="<?php echo $download_link ?>">here</a> &nbsp;to view and download the <?php echo $format ?> file "<?php echo $title ?>"</p>
+									</div> -->
+								</div>	
+								<!-- Add a loading spinner element to your page -->
+								<div id="loading-spinner" style="display: none; align-items: center; height: 130px">
+									<img src="https://i.stack.imgur.com/ATB3o.gif" alt="Loading..." style = "height: 130px">
+								</div>
+								<script>
+									$('#tabVideo').submit(function(event) {
+										// Show the loading spinner
+										document.getElementById("loading-spinner").style = "display:flex; align-items:center; justify-content:center;";
+									});
+									$('#tabAudio').submit(function(event) {
+										// Show the loading spinner
+										document.getElementById("loading-spinner").style = "display:flex; align-items:center; justify-content:center;";
+									});
+								</script>	
+							</div>
+						</div>
+					</div>	
+					<script>
+						function openTab(evt, tabName) {
+							var i, tabcontent, tablinks;
+							tabcontent = document.getElementsByClassName("tabcontent");
+							tablinks = document.getElementsByClassName("tablinks");
+							for (i = 0; i < tabcontent.length; i++) {
+								tabcontent[i].style.display = "none";
+							}
+							for (i = 0; i < tablinks.length; i++) {
+								tablinks[i].className = tablinks[i].className.replace(" active", "");
+								tablinks[i].style.opacity = 0.5;
+							}
+							document.getElementById(tabName).style.display = "block";
+							evt.currentTarget.className += " active";
+							evt.currentTarget.style.opacity = 1;
+						}
+					</script>
+					</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+			<br>
+			<h5 class="text-muted mb-0 text-center">Supported Platforms:</h5>
+			<br>
+			<div class="row justify-content-center">
+				<div class="col-6 col-sm-2 p-4 text-center">
+					<img src="https://ssyoutube.com/img/platforms/windows.svg" alt="" height="70">
+				</div>
+				<div class="col-6 col-sm-2 p-4 text-center">
+					<img src="https://ssyoutube.com/img/platforms/apple.svg" alt="" height="70">
+				</div>
+				<div class="col-6 col-sm-2 p-4 text-center">
+					<img src="https://ssyoutube.com/img/platforms/android.svg" alt="" height="70">
+				</div>
+				<div class="col-6 col-sm-2 p-4 text-center">
+					<img src="https://ssyoutube.com/img/platforms/linux.svg" alt="" height="70">
+				</div>
+			</div>
+		<br>
+		<section class="container mb-5 align-items-center b-instruction how-to">
+			<h2 class="col-12 text-center mb-4">How to download YouTube videos online</h2>
+			<div class="row text-center justify-content-center" style = "height: 300px;">
+				<div class="col-lg-7">
+					<div class="media">
+						<div class="media-body">
+							<div class="img mx-auto mb-4 pb-1 mb-lg-0 col-10 h-auto">
+								<picture>
+									<img style = "height: 180" loading="lazy" src="youtube-banner.png" alt="" height="250px">
+								</picture>
+							</div>
+							<p class="text-muted">Copy the link to the video and paste it into the input line and wait a few sec for the miracle</p>
+						</div>
+					</div>
+		
+				</div>
+			</div>
+		</section>
+	</div>
+	<footer class="text-center p-3 footer">
+		@ 2023 Copyright: <a class="text-white" href="https://youtube-explorer.herokuapp.com/">YouTube-Exproler.com</a>
+	</footer>
+</body>
+</html>
+</html>
+

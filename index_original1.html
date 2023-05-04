@@ -21,9 +21,21 @@
 			<div class="title">
 				<h1 class="mb-3 mt-3">YouTube Exproler</h1>
 			</div>
-			<form class="form1 text-center" action="process_info.php" method="POST">
+			<form class="form1 text-center" action="process2.php" method="POST">
 				<img class="youtube-image" src="https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500" alt="YouTube Logo">
 				<input type="text" name="youtube-link" id="youtube-link" placeholder="Enter YouTube video link" required>
+				<select name="format" id="format" class="form-select" required>
+					<option value="" disabled selected hidden>Format</option>
+					<option value="MP3">MP3</option>
+					<option value="M4A">M4A</option>
+					<option value="MP4">MP4</option>
+				</select>
+				<select name="quality" id="quality" class="form-select" required> 
+					<option value="" disabled selected hidden>Quality</option>
+					<option value="high">High</option>
+					<option value="medium">Medium</option>
+					<option value="low">Low</option>
+				</select>
 				<button type="submit">Search</button>
 			</form>
 		</div>

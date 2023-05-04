@@ -49,11 +49,15 @@ if(isset($_POST['youtube-link'])) {
     // Generate a download link
     $download_link = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/' . $file_name;
     $thumbnail_img_link = "https://img.youtube.com/vi/{$video_id}/0.jpg";
+    $iframe_src = "https://www.youtube.com/embed/{$video_id}";
     include 'index2.html';
+    echo "<script>document.getElementById('video-player').src = '{$iframe_src}';</script>";
+
+
 ?>
 <script>
     console.log(<?php echo json_encode($return_var); ?>);
-    console.log(<?php echo json_encode($cmd); ?>);
+    console.log(<?php echo json_encode($video_id); ?>);
 </script>
 <?php
 }

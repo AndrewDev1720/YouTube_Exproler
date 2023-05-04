@@ -15,7 +15,12 @@ if(isset($_POST['youtube-link'])) {
         $json = file_get_contents($url);
         $data = json_decode($json, true);
         $title = $data['items'][0]['snippet']['title'];
-    
+        $duration = $data['items'][0]['contentDetails']['duration'];
+        $channel_name = $data['items'][0]['snippet']['channelTitle'];
+        $channel_id = $data['items'][0]['snippet']['channelId'];
+        $published_at = $data['items'][0]['snippet']['publishedAt'];
+        $date = new DateTime($published_at);
+        $published_at_formatted = $date->format('F j, Y');
         $iframe_src = "https://www.youtube.com/embed/{$video_id}";
         include 'info.html';
         echo "<script>document.getElementById('video-player').src = '{$iframe_src}';</script>";
@@ -29,7 +34,8 @@ if(isset($_POST['youtube-link'])) {
     }
 ?>
 <script>
-    // console.log(<?php echo json_encode($video_id); ?>);
+    console.log(<?php echo json_encode($data['items']); ?>);
+    console.log("Hello World");
 </script>
 
 <?php

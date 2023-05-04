@@ -15,7 +15,12 @@ if(isset($_POST['youtube-link'])) {
         $json = file_get_contents($url);
         $data = json_decode($json, true);
         $title = $data['items'][0]['snippet']['title'];
-        
+        $duration = $data['items'][0]['contentDetails']['duration'];
+        $channel_name = $data['items'][0]['snippet']['channelTitle'];
+        $channel_id = $data['items'][0]['snippet']['channelId'];
+        $published_at = $data['items'][0]['snippet']['publishedAt'];
+        $date = new DateTime($published_at);
+        $published_at_formatted = $date->format('F j, Y');
         // Download audio stream using youtube-dl
         $download_link = NULL;
         $file_name = NULL;

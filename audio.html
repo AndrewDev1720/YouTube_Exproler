@@ -47,7 +47,7 @@
 							<div class="col-sm text-center">
 								<iframe id="video-player" width="560" height="315" src="" frameborder="1" style = "border-radius: 7%;"" allowfullscreen></iframe>
 							</div>
-							<div class="col-sm">
+							<div class="col-sm" style = "position: relative;">
 								<div class="row">
 									<div class="col-sm text-center" style="padding-right: 1px;">
 										<button class="tablinks w-100" onclick="openTab(event, 'tabVideo')" style="background-color: #96979b; opacity: 0.5; color: white; padding: 15px 0; border: none; border-radius: 4px;">Video</button>
@@ -104,7 +104,15 @@
 										// Show the loading spinner
 										document.getElementById("loading-spinner").style = "display:flex; align-items:center; justify-content:center;";
 									});
-								</script>		
+									$('#tabVideo').submit(function(event) {
+										// Show the loading spinner
+										document.getElementById("loading-spinner").style = "display:flex; align-items:center; justify-content:center;";
+									});
+								</script>
+								<div style="display: flex; font-family: Arial, sans-serif; position:absolute; bottom: 0;">
+									<p style="margin: 0; padding: 10px;">Channel: <a href="https://www.youtube.com/channel/<?php echo $channel_id ?>" target="_blank" style="color: #167ac6; text-decoration: none;"><?php echo $channel_name ?></a></p>
+									<p style="margin: 0; padding: 10px;">Published on: <?php echo $published_at_formatted ?></p>
+								</div>											
 							</div>
 						</div>
 					</div>	

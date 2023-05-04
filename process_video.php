@@ -39,7 +39,7 @@ if(isset($_POST['youtube-link'])) {
 
         }
         else if ($format = "Mkv"){
-            $cmd = "yt-dlp -f 'bestvideo[ext=webm][height<={$resolution}]+bestaudio/best' --merge-output-format mkv -o " . escapeshellarg("{$title}.{$resolution}.webm") . " " . escapeshellarg($youtube_link);
+            $cmd = "yt-dlp -f 'bestvideo[height<={$resolution}]+bestaudio/best' --merge-output-format mkv -o " . escapeshellarg("{$title}.{$resolution}.mkv") . " " . escapeshellarg($youtube_link);
             // Replace file name
             $file_name = "{$title}.$resolution.mkv";
         }

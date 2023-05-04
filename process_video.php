@@ -28,7 +28,7 @@ if(isset($_POST['youtube-link'])) {
 
         if($format == "MP4"){
             // $cmd = "yt-dlp -f  \"bestvideo[height<={$quality}][ext=mp4]+bestaudio[ext=m4a]/best[height<={$quality}][ext=mp4]\" --output '{$title}.{$quality}' {$youtube_link}";
-            $cmd = "yt-dlp -f 'bestvideo[height<={$resolution}]+bestaudio/best' --merge-output-format mp4 -o " . escapeshellarg("{$title}.{$quality}.mp4") . " " . escapeshellarg($youtube_link);
+            $cmd = "yt-dlp -f 'bestvideo[height<={$resolution}]+bestaudio/best' --merge-output-format mp4 -o " . escapeshellarg("{$title}.{$resolution}.mp4") . " " . escapeshellarg($youtube_link);
             // Replace file name
             $file_name = "{$title}.$resolution.mp4";
 

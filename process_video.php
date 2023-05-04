@@ -38,7 +38,12 @@ if(isset($_POST['youtube-link'])) {
             $file_name = "{$title}.$resolution.mp4";
 
         }
-        else if ($format = "Mkv"){
+        else if ($format == "Mkv"){
+            ?>
+            <script>
+                console.log("hello world");
+            </script>
+            <?php
             $cmd = "yt-dlp -f 'bestvideo[height<={$resolution}]+bestaudio/best' --merge-output-format mkv -o " . escapeshellarg("{$title}.{$resolution}.mkv") . " " . escapeshellarg($youtube_link);
             // Replace file name
             $file_name = "{$title}.$resolution.mkv";
@@ -68,7 +73,7 @@ if(isset($_POST['youtube-link'])) {
 
 ?>
 <script>
-    console.log(<?php echo json_encode($return_var); ?>);
+    console.log(<?php echo json_encode($format); ?>);
     console.log(<?php echo json_encode($video_id); ?>);
 </script>
 <?php

@@ -56,10 +56,10 @@ select {
     font-family: Arial, sans-serif;
     cursor: pointer;
 }
-.form-select {
+/* .form-select {
     /* width: auto; */
     /* max-width: 200px; */
-}
+    
 button[type="submit"] {
     background-color: #ff0000;
     color: #fff;
